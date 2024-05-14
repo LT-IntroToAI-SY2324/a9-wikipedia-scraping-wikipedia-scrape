@@ -19,19 +19,20 @@ date_matches = pat.match(date_string)
 # should extract a match where the first group is the number, the second the street, the
 # third the city, the fourth the state and the fifth the zip code
 address_string = "2501 Addison Street Chicago, IL 60618" # Removed \n, did not know if required or not
-pat = re.compile("(\d+) (\w+.\w+) (\w+), (\w+) (\d+)", re.IGNORECASE)
+pat = re.compile("(?P<number>\d+) (?P<street>\w+.\w+) (?P<city>\w+), (?P<state>\w+) (?P<zip>\d+)", re.IGNORECASE)
 address_matches = pat.match(address_string)
-print(address_matches.group(1))
-print(address_matches.group(2))
-print(address_matches.group(3))
-print(address_matches.group(4))
-print(address_matches.group(5))
+# print(address_matches.group("number"))
+# print(address_matches.group("street"))
+# print(address_matches.group("city"))
+# print(address_matches.group("state"))
+# print(address_matches.group("zip"))
 
 # problem 3
 # should match all hashtags
 tweet_string = "hi everyone! #cs #python #LT #champions"
-pat = re.compile("REPLACE ME", re.IGNORECASE)
+pat = re.compile("cs+\s.\w+", re.IGNORECASE)
 hashtag_matches = pat.findall(tweet_string)
+print(hashtag_matches)
 
 # until you uncomment any code line below you'll get an EOF linting error feel free to
 # ignore it
@@ -48,7 +49,7 @@ if __name__ == "__main__":
 
     print("<<<<< Address Problem >>>>>\n")
     # uncomment the following prints to see results and asserts to test
-    print(f'number is: {address_matches.group("number")}!') # should print "number is: 2501"
+    # print(f'number is: {address_matches.group("number")}!') # should print "number is: 2501"
     # print(f'street is: {address_matches.group("street")}!') # should print "street is: Addison Street"
     # print(f'city is: {address_matches.group("city")}!')     # should print "city is: Chicago"
     # print(f'state is: {address_matches.group("state")}!')   # should print "state is: IL"
