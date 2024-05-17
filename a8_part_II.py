@@ -19,7 +19,7 @@ def get_planet_mean_density(planet_name: str) -> str:
         mean_density of the given planet
     """
     infobox_text = clean_text(get_first_infobox_text(get_page_html(planet_name)))
-    print(infobox_text)
+    # print(infobox_text)
     # TODO: fill this in
     pattern = "Mean density(?P<mean_density>[\d.]+)"
     error_text = "Page infobox has no polar radius information"
@@ -36,8 +36,9 @@ def get_planet_radius(planet_name: str) -> str:
         radius of the given planet
     """
     infobox_text = clean_text(get_first_infobox_text(get_page_html(planet_name)))
+    # print(infobox_text)
     # TODO: fill this in
-    pattern = "REPLACE ME"
+    pattern = "Polar radius(?P<radius>[\d.,]+)"
     error_text = "Page infobox has no polar radius information"
     match = get_match(infobox_text, pattern, error_text)
     return match.group("radius")
@@ -64,22 +65,22 @@ def get_birth_date(name: str) -> str:
 
 if __name__ == "__main__":
 
-    print("\n<<<<<<<<<<<<<< Testing Planet Surface Area >>>>>>>>>>>>>>")
-    print(f'Mars has a polar radius of {get_planet_mean_density("Mars")}g/cm^3 ||| Should be: 3.9335g/cm^3')
-    print(f'Earth has a polar radius of {get_planet_mean_density("Earth")}g/cm^3 ||| Should be: 5513g/cm^3')
-    print(f'Jupiter has a polar radius of {get_planet_mean_density("Jupiter")}g/cm^3 ||| Should be: 1.326g/cm^3')
-    print(f'Saturn has a polar radius of {get_planet_mean_density("Saturn")}g/cm^3 ||| Should be: 0.687g/cm^3')
+    # print("\n<<<<<<<<<<<<<< Testing Planet Surface Area >>>>>>>>>>>>>>")
+    # print(f'Mars has a polar radius of {get_planet_mean_density("Mars")}g/cm^3 ||| Should be: 3.9335g/cm^3')
+    # print(f'Earth has a polar radius of {get_planet_mean_density("Earth")}g/cm^3 ||| Should be: 5513g/cm^3')
+    # print(f'Jupiter has a polar radius of {get_planet_mean_density("Jupiter")}g/cm^3 ||| Should be: 1.326g/cm^3')
+    # print(f'Saturn has a polar radius of {get_planet_mean_density("Saturn")}g/cm^3 ||| Should be: 0.687g/cm^3')
 
     # Uncomment when ready to test for planet radius
-    # print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
-    # # should be 3,376.2
-    # print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
-    # # should be 6356.752
-    # print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
-    # # should be 66,854
-    # print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
-    # # should be 54,364
-    # print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
+    print("\n<<<<<<<<<<<<<< Testing Planet Radius >>>>>>>>>>>>>>")
+    # should be 3,376.2
+    print(f'Mars has a polar radius of {get_planet_radius("Mars")}km')
+    # should be 6356.752
+    print(f'Earth has a polar radius of {get_planet_radius("Earth")}km')
+    # should be 66,854
+    print(f'Jupiter has a polar radius of {get_planet_radius("Jupiter")}km')
+    # should be 54,364
+    print(f'Saturn has a polar radius of {get_planet_radius("Saturn")}km')
 
     # uncomment below lines for tests once you think you're getting the right output
     # print('\n<<<< Running asserts, this might take a sec >>>>')
